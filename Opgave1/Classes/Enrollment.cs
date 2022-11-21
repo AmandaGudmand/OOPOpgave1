@@ -8,13 +8,13 @@ namespace Opgave1.Classes
 {
     internal class Enrollment
     {
-        public Student StudentInfo { get; set; }
-        public Course CourseInfo { get; set; }
+        public Student _studentInfo { get; set; }
+        public Course _courseInfo { get; set; }
 
         public Enrollment(Student _studentinfo, Course _courseInfo)
         {
-            this.StudentInfo = _studentinfo;
-            this.CourseInfo = _courseInfo;
+            this._studentInfo = _studentinfo;
+            this._courseInfo = _courseInfo;
         }
     }
 }

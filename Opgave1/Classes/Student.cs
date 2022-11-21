@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace Opgave1.Classes
 {
-    internal class Student
+    sealed class Student : PersonalInfo
     {
-        public int StudentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public double Age { get; set; }
+        public int _studentId { get; set; }
 
 
-        public Student(int StudentId, string Firstname, string Lastname, DateTime DateOfBirth)
+
+        public Student(int _studentId, string _firstname, string _lastname, DateTime _dateOfBirth)
         {
-            this.StudentId = StudentId;
-            this.FirstName = Firstname;
-            this.LastName = Lastname;
-            this.DateOfBirth = DateOfBirth;
-            Age = AgeCalculator.Calculate(DateOfBirth);
+            this._studentId = _studentId;
+            this._firstName = _firstname;
+            this._lastName = _lastname;
+            this._dateOfBirth = _dateOfBirth;
+            _age = AgeCalculator.Calculate(_dateOfBirth);
         }
     }
 }
