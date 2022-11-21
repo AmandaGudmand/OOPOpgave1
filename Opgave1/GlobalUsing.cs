@@ -1,0 +1,1 @@
+﻿global using Opgave1.Classes;
