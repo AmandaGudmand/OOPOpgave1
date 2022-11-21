@@ -11,13 +11,10 @@ namespace Opgave1.Classes
 
         public string _department { get; set; }
 
-        public Teacher(string _department, string _firstname, string _lastname, DateTime _dateOfBirth)
+        public Teacher(string _department, string _firstname, string _lastname, DateTime _dateOfBirth) : base( _firstname,  _lastname, _dateOfBirth)
         {
             this._department = _department;
-            this._firstName = _firstname;
-            this._lastName = _lastname;
-            this._dateOfBirth = _dateOfBirth;
-            _age = AgeCalculator.Calculate(_dateOfBirth);
+  
         }
     }
 }

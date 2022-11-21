@@ -12,13 +12,10 @@ namespace Opgave1.Classes
 
 
 
-        public Student(int _studentId, string _firstname, string _lastname, DateTime _dateOfBirth)
+        public Student(int _studentId, string _firstname, string _lastname, DateTime _dateOfBirth) : base( _firstname,  _lastname, _dateOfBirth)
         {
             this._studentId = _studentId;
-            this._firstName = _firstname;
-            this._lastName = _lastname;
-            this._dateOfBirth = _dateOfBirth;
-            _age = AgeCalculator.Calculate(_dateOfBirth);
+
         }
     }
 }
