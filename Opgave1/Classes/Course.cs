@@ -16,5 +16,6 @@ namespace Opgave1.Classes
             this._courseName = _courseName;
             this._teacherInfo = _teacherinfo;
         }
+
     }
 }

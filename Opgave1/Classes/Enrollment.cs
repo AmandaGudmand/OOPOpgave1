@@ -10,11 +10,18 @@ namespace Opgave1.Classes
     {
         public Student _studentInfo { get; set; }
         public Course _courseInfo { get; set; }
+        public List<Enrollment> EnrollmentList { get; set; }
 
         public Enrollment(Student _studentinfo, Course _courseInfo)
         {
             this._studentInfo = _studentinfo;
             this._courseInfo = _courseInfo;
         }
+
+        public Enrollment() { }
+
+
+       
     }
+
 }

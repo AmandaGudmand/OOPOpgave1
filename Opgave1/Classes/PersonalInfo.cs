@@ -8,17 +8,31 @@ namespace Opgave1.Classes
 {
     abstract class PersonalInfo
     {
-        public string _firstName { get; set; }
-        public string _lastName { get; set; }
-        public DateTime _dateOfBirth { get; set; }
-        public double _age { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public double Age { get; set; }
 
         public PersonalInfo(string firstName, string lastName, DateTime dateOfBirth)
         {
-            _firstName = firstName;
-            _lastName = lastName;
-            _dateOfBirth = dateOfBirth;
-            _age = AgeCalculator.Calculate(_dateOfBirth);
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dateOfBirth;
+            Age = AgeCalculator.Calculate(DateOfBirth);
+        }
+
+        public string PersonAge()
+        {
+            Age.ToString();
+            string returnAge = $"{FirstName} {LastName} {Age}";
+            return returnAge;
+        }
+
+        public abstract string? GetAllCourse(Enrollment enrollment);
+
+        public virtual string ReturnFullName()
+        {
+            return $"{FirstName} {LastName}";
         }
     }
 }

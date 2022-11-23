@@ -10,7 +10,12 @@ Course OOP = new Course("OOP", Niels);
 Course Grund = new Course("Grundlæggende programmering", Niels);
 Course Studieteknik = new Course("Studieteknik", Niels);
 
-List<Enrollment> _enrollments = new List<Enrollment>()
+
+
+Enrollment _enrollment = new Enrollment();
+
+
+_enrollment.EnrollmentList = new List<Enrollment>()
 {
     new Enrollment(Alexander, OOP),
     new Enrollment(Alexander, Grund),
@@ -27,9 +32,12 @@ List<Enrollment> _enrollments = new List<Enrollment>()
     new Enrollment(Camilla, Grund),
 };
 
-foreach (var item in _enrollments)
-{
-    Console.WriteLine(item._studentInfo._firstName + " " + item._studentInfo._lastName + " is enrolled in; " + item._courseInfo._courseName + ", taught by " + item._courseInfo._teacherInfo._firstName + " " + item._courseInfo._teacherInfo._lastName);
-}
+//foreach (var item in _enrollment.EnrollmentList)
+//{
+//    Console.WriteLine(item._studentInfo.FirstName + " " + item._studentInfo.LastName + " is enrolled in; " + item._courseInfo._courseName + ", taught by " + item._courseInfo._teacherInfo.FirstName + " " + item._courseInfo._teacherInfo.LastName);
+//}
 
-Console.ReadLine();
+Console.WriteLine(Niels.GetAllCourse(_enrollment));
+Console.WriteLine(Amanda.GetAllCourse(_enrollment));
+Console.WriteLine(Amanda.ReturnFullName());
+Console.WriteLine(Niels.PersonAge());
