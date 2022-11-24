@@ -1,113 +1,98 @@
 ﻿using Opgave1.Classes;
 using Opgave1.Code.Enums;
 
-Student Alexander = new Student(1, "Alexander", "K.H. Runge", "01-01-2003");
-Student Amanda = new Student(2, "Amanda", "E.V. Gudmand", "01-04-1998");
-Student Dennis = new Student(3, "Dennis", "D.B Paaske", "22-01-1981");
-Student Ozan = new Student(4, "Ozan", "Kprkmaz", "10-10-1992");
-Student Camilla = new Student(5, "Camilla", "Kløjgaard", "12-07-1995");
-Student Rune = new Student(6, "Rune", "Hansen", "13-05-1997");
-Student Sanjit = new Student(7, "Sanjit", "Pouden", "11-05-1998");
-Student Rasmus = new Student(8, "Rasmus", "Wiell", "12-12-1995");
-Student Temp = new Student(9, "Temp", "Name", "01-01-2000");
-
 Teacher Niels = new Teacher("IT", "Niels", "Olesen", "02-02-1971");
 Teacher Peter = new("IT", "Peter", "Lindenskov", "01-01-1970");
 
-//Course OOP = new Course("OOP", Niels);
-//Course Grund = new Course("Grundlæggende programmering", Niels);
-//Course Studieteknik = new Course("Studieteknik", Niels);
-
 Course clientSide = new(CourseEnum.ClientsideProgrammering.ToString(), Peter);
 Course studieteknik = new(CourseEnum.Studieteknik.ToString(), Niels);
-Course grundPro = new(CourseEnum.GrundlæggendeProgrammering.ToString(), Niels);
+Course grundlæggendeProgrammering = new(CourseEnum.GrundlæggendeProgrammering.ToString(), Niels);
 Course oop = new(CourseEnum.OOP.ToString(), Niels);
-Course databaseprog = new Course(CourseEnum.DatabaseProgrammering.ToString(), Niels);
-Course computertek = new Course(CourseEnum.Computerteknologi.ToString(), Niels);
+Course databaseProgrammering = new Course(CourseEnum.DatabaseProgrammering.ToString(), Niels);
+Course computerTeknologi = new Course(CourseEnum.Computerteknologi.ToString(), Niels);
 Course netværk = new Course(CourseEnum.Netværk.ToString(), Niels);
 
+
+bool _keepRunning = true;
+
+
 Enrollment _enrollmentList = new();
-_enrollmentList.EnrollList = new List<Enrollment>()
+_enrollmentList.EnrollList = new List<Enrollment>() { };
+
+
+while (_keepRunning)
 {
-    new(Alexander, clientSide),
-    new(Alexander, studieteknik),
-    new(Alexander, oop),
-    new(Alexander, grundPro),
-    new(Alexander, databaseprog),
-    new(Alexander, computertek),
-    new(Alexander, netværk),
+        Console.WriteLine("Indtast Elevens studieID");
+        int.TryParse(Console.ReadLine(), out int _studieID);
+        Console.WriteLine("Indtast Elevens fornavn: ");
+        string? _firstName = Console.ReadLine();
+        Console.WriteLine("Indtast Elevens efternavn: ");
+        string? _lastName = Console.ReadLine();
+        Console.WriteLine("Indtast Elevens fødselsdato (dd-mm-yyyy)");
+        string? _dateOfBirth = Console.ReadLine();
 
-    new(Sanjit, studieteknik),
-    new(Sanjit, grundPro),
-    new(Sanjit, oop),
-    new(Sanjit, databaseprog),
-    new(Sanjit, computertek),
-    new(Sanjit, netværk),
 
-    new(Amanda, studieteknik),
-    new(Amanda, grundPro),
-    new(Amanda, oop),
-    new(Amanda, databaseprog),
-    new(Amanda, computertek),
-    new(Amanda, netværk),
+        Student student = new(_studieID, _firstName, _lastName, _dateOfBirth);
 
-    new(Dennis, studieteknik),
-    new(Dennis, oop),
-    new(Dennis, grundPro),
-    new(Dennis, databaseprog),
-    new(Dennis, computertek),
-    new(Dennis, netværk),
 
-    new(Ozan, grundPro),
-    new(Ozan, oop),
-    new(Ozan, databaseprog),
-    new(Ozan, computertek),
-    new(Ozan, netværk),
+        Console.WriteLine("\nTilmeld elev til fag: \n-------------------------------------");
+        foreach (CourseEnum coursesEnum in Enum.GetValues(typeof(CourseEnum)))
+        {
+            Console.WriteLine(coursesEnum);
+        }
+        Console.WriteLine("-------------------------------------");
+        string? _pickCourse = Console.ReadLine().ToUpper();
 
-    new(Camilla, grundPro),
-    new(Camilla, oop),
-    new(Camilla, databaseprog),
-    new(Camilla, computertek),
-    new(Camilla, netværk),
+        if (_pickCourse == CourseEnum.GrundlæggendeProgrammering.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, clientSide));
+        }
+        else if (_pickCourse == CourseEnum.Studieteknik.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, studieteknik));
+        }
+        else if (_pickCourse == CourseEnum.GrundlæggendeProgrammering.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, grundlæggendeProgrammering));
+        }
+        else if (_pickCourse == CourseEnum.OOP.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, oop));
+        }
+        else if (_pickCourse == CourseEnum.Netværk.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, netværk));
+        }
+        else if (_pickCourse == CourseEnum.ClientsideProgrammering.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, clientSide));
+        }
+        else if (_pickCourse == CourseEnum.DatabaseProgrammering.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, databaseProgrammering));
+        }
+        else if (_pickCourse == CourseEnum.Computerteknologi.ToString().ToUpper())
+        {
+            _enrollmentList.EnrollList.Add(new Enrollment(student, computerTeknologi));
+        }
 
-    new(Rune, oop),
-    new(Rasmus, oop),
-    new(Temp, oop)
-};
-//{
-//    new Enrollment(Alexander, OOP),
-//    new Enrollment(Alexander, Grund),
-//    new Enrollment(Alexander, Studieteknik),
-//    new Enrollment(Amanda, OOP),
-//    new Enrollment(Amanda, Grund),
-//    new Enrollment(Amanda, Studieteknik),
-//    new Enrollment(Dennis, OOP),
-//    new Enrollment(Dennis, Grund),
-//    new Enrollment(Dennis, Studieteknik),
-//    new Enrollment(Ozan, OOP),
-//    new Enrollment(Ozan, Grund),
-//    new Enrollment(Camilla, OOP),
-//    new Enrollment(Camilla, Grund),
-//};
+        else Console.WriteLine("Ugyldigt input");
 
-//foreach (var item in _enrollments)
-//{
-//    Console.WriteLine(item._studentInfo._firstName + " " + item._studentInfo._lastName + " is enrolled in; " + item._courseInfo._courseName + ", taught by " + item._courseInfo._teacherInfo._firstName + " " + item._courseInfo._teacherInfo._lastName);
-//}
+        Console.WriteLine("\n");
 
-_enrollmentList.EnrollList.Sort();
+        foreach (var item in _enrollmentList.EnrollList)
+        {
+            Console.WriteLine($"{item._studentInfo._firstName} {item._studentInfo._lastName}, fag: {item._courseInfo._courseName}, lærer: {item._courseInfo._teacherInfo._firstName} {item._courseInfo._teacherInfo._lastName}");
+        }
 
-foreach (var item in _enrollmentList.EnrollList)
-{
-    Console.WriteLine($"{item._studentInfo._firstName} {item._studentInfo._lastName}  Course: {item._courseInfo._courseName}  Teacher: {item._courseInfo._teacherInfo._firstName} {item._courseInfo._teacherInfo._lastName} ");
-}
+        Console.WriteLine("\n\nTast\n1: For at tilmelde en elev\nQ: For at afslutte");
+        char c = Console.ReadKey().KeyChar;
 
-try
-{
-    oop.CourseStudentAmount(oop.StudentList(_enrollmentList));
-}
+        if (c == 'q' || c == 'Q')
+        {
+            _keepRunning = false;
+        }
+        Console.Clear();
 
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
+
+    }

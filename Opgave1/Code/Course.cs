@@ -16,35 +16,6 @@ namespace Opgave1.Classes
             this._courseName = _courseName;
             this._teacherInfo = _teacherinfo;
         }
-
-        public List<string> StudentList(Enrollment enrollment)
-        {
-            List<string> students = new();
-
-            foreach (var item in enrollment.EnrollList)
-            {
-                string student = $"{item._studentInfo._firstName} {item._studentInfo._lastName}";
-
-                if (!students.Contains(student))
-                {
-                    students.Add(student);
-                }
-            }
-
-            return students;
-        }
-        public void CourseStudentAmount(List<string> students)
-        {
-            if (students.Count < 8)
-            {
-                throw new Exception("Faget har mindre en 8 studenter");
-            }
-            else if (students.Count > 16)
-            {
-                throw new Exception("Faget har mere en 16 studenter");
-            }
-        }
-
     }
 
 }

@@ -8,7 +8,6 @@ namespace Opgave1.Code.Enums
 {
     enum CourseEnum
     {
-        Unknown, 
         ClientsideProgrammering, 
         Studieteknik, 
         GrundlæggendeProgrammering, 

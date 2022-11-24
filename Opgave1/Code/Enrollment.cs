@@ -18,9 +18,7 @@ namespace Opgave1.Classes
             this._courseInfo = _courseInfo;
         }
 
-        public Enrollment()
-        {
-        }
+        public Enrollment() { }
 
         public int CompareTo(Enrollment? other)
         {
