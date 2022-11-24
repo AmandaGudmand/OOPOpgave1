@@ -1,1 +1,1 @@
-﻿global using Opgave1.Classes;
+﻿global using Opgave1.Code;
